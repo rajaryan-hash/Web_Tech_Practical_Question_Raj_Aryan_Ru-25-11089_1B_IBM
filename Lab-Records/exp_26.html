@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Verdana', sans-serif; background: #111; color: #0ff; display: flex; justify-content: center; padding-top: 50px; }
+        .neon-box { border: 2px solid #0ff; box-shadow: 0 0 10px #0ff; padding: 20px; width: 300px; text-align: center; }
+        input { background: #222; border: 1px solid #0ff; color: #0ff; padding: 10px; }
+        button { background: #0ff; color: #000; border: none; padding: 10px 20px; font-weight: bold; margin-top: 10px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="neon-box">
+    <h3>Neon Number Check</h3>
+    <input type="number" id="neonIn" placeholder="Enter number (e.g. 9)">
+    <button onclick="isNeon()">Check</button>
+    <div id="neon-res" style="margin-top:20px;"></div>
+</div>
+
+<script>
+    function isNeon() {
+        let num = parseInt(document.getElementById("neonIn").value);
+        let sq = num * num;
+        let sum = 0;
+        let temp = sq;
+        
+        while (temp > 0) {
+            sum += temp % 10;
+            temp = Math.floor(temp / 10);
+        }
+        
+        if (sum === num) document.getElementById("neon-res").innerText = "YES! " + num + " is Neon.";
+        else document.getElementById("neon-res").innerText = "NO. Square is " + sq + ", sum is " + sum;
+    }
+</script>
+
+</body>
+</html>

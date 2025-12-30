@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #e3f2fd; }
+        .logic-card { background: white; padding: 25px; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); width: 280px; }
+        input { width: 100%; padding: 8px; margin: 5px 0; box-sizing: border-box; }
+        button { width: 100%; padding: 10px; background: #2196f3; color: white; border: none; margin-top: 10px; cursor: pointer; }
+        #logic-res { margin-top: 15px; font-weight: bold; text-align: center; color: #1565c0; }
+    </style>
+</head>
+<body>
+
+<div class="logic-card">
+    <h3>Sum or Triple</h3>
+    <input type="number" id="n1" placeholder="First Integer">
+    <input type="number" id="n2" placeholder="Second Integer">
+    <button onclick="compute()">Compute</button>
+    <div id="logic-res"></div>
+</div>
+
+<script>
+    function compute() {
+        let a = parseInt(document.getElementById("n1").value);
+        let b = parseInt(document.getElementById("n2").value);
+        let result;
+        
+        if (a === b) {
+            result = (a + b) * 3;
+            document.getElementById("logic-res").innerText = "Equal! (Sum x 3): " + result;
+        } else {
+            result = a + b;
+            document.getElementById("logic-res").innerText = "Sum: " + result;
+        }
+    }
+</script>
+
+</body>
+</html>

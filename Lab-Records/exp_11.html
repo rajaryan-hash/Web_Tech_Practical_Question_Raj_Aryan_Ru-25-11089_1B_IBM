@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Number Guessing Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .game-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .message {
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="game-container">
+    <h2>Guess the Number (1-100)</h2>
+    <input type="number" id="guess" min="1" max="100" />
+    <br>
+    <button onclick="checkGuess()">Submit Guess</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <script>
+    const secretNumber = Math.floor(Math.random() * 100) + 1;
+
+    function checkGuess() {
+      const guess = parseInt(document.getElementById('guess').value);
+      const message = document.getElementById('message');
+
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        message.textContent = "Please enter a number between 1 and 100.";
+      } else if (guess === secretNumber) {
+        message.textContent = "🎉 Correct! You guessed the number!";
+        message.style.color = 'green';
+      } else if (guess < secretNumber) {
+        message.textContent = "Too low. Try again!";
+        message.style.color = 'red';
+      } else {
+        message.textContent = "Too high. Try again!";
+        message.style.color = 'red';
+      }
+    }
+  </script>
+</body>
+</html>

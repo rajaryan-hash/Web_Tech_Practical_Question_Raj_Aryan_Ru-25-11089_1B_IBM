@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background: #fdfdfd; }
+        .near-box { border: 2px solid #607d8b; padding: 20px; width: 300px; margin: 0 auto; background: #eceff1; }
+        input { width: 40%; padding: 8px; margin-right: 5px; }
+        button { padding: 8px 16px; background: #607d8b; color: white; border: none; cursor: pointer; }
+        #near-res { margin-top: 15px; font-weight: bold; color: #37474f; }
+    </style>
+</head>
+<body>
+
+<div class="near-box">
+    <h3>Closest to 100</h3>
+    <input type="number" id="val1" placeholder="Num 1">
+    <input type="number" id="val2" placeholder="Num 2">
+    <br><br>
+    <button onclick="findClosest()">Find</button>
+    <div id="near-res"></div>
+</div>
+
+<script>
+    function findClosest() {
+        let x = parseInt(document.getElementById("val1").value);
+        let y = parseInt(document.getElementById("val2").value);
+        
+        let diffX = Math.abs(100 - x);
+        let diffY = Math.abs(100 - y);
+        
+        if (diffX < diffY) document.getElementById("near-res").innerText = x + " is closer.";
+        else if (diffY < diffX) document.getElementById("near-res").innerText = y + " is closer.";
+        else document.getElementById("near-res").innerText = "Both are equidistant.";
+    }
+</script>
+
+</body>
+</html>

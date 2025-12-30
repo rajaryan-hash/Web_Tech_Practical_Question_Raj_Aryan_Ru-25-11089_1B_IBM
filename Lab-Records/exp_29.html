@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; display: flex; justify-content: center; padding-top: 50px; background: #e8eaf6; }
+        .pal-card { background: white; padding: 30px; border-radius: 8px; text-align: center; border: 1px solid #c5cae9; }
+        input { padding: 10px; border: 1px solid #9fa8da; width: 200px; }
+        button { display: block; width: 100%; margin-top: 10px; padding: 10px; background: #3f51b5; color: white; border: none; cursor: pointer; }
+        .match { color: green; font-weight: bold; }
+        .no-match { color: red; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+<div class="pal-card">
+    <h3>Palindrome Check</h3>
+    <input type="text" id="palIn" placeholder="Enter text or number">
+    <button onclick="checkPal()">Analyze</button>
+    <div id="pal-res" style="margin-top:15px;"></div>
+</div>
+
+<script>
+    function checkPal() {
+        let str = document.getElementById("palIn").value;
+        let rev = str.split('').reverse().join('');
+        let el = document.getElementById("pal-res");
+        
+        if (str === rev) {
+            el.innerHTML = `<span class="match">Palindrome</span>`;
+        } else {
+            el.innerHTML = `<span class="no-match">Not Palindrome</span>`;
+        }
+    }
+</script>
+
+</body>
+</html>

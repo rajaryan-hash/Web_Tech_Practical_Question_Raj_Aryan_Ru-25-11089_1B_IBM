@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; text-align: center; padding-top: 50px; }
+        .calc-box { border: 1px solid #ccc; padding: 30px; display: inline-block; border-radius: 8px; background: #f9f9f9; }
+        button { background: #e91e63; color: white; border: none; padding: 10px 20px; font-size: 16px; cursor: pointer; border-radius: 4px; }
+        #res { font-size: 20px; margin-top: 20px; color: #333; }
+    </style>
+</head>
+<body>
+
+<div class="calc-box">
+    <h3>Sum Multiples (3 & 5) < 1000</h3>
+    <button onclick="calcSumMult()">Calculate</button>
+    <div id="res"></div>
+</div>
+
+<script>
+    function calcSumMult() {
+        let sum = 0;
+        for (let i = 0; i < 1000; i++) {
+            if (i % 3 === 0 || i % 5 === 0) {
+                sum += i;
+            }
+        }
+        document.getElementById("res").innerText = "Result: " + sum;
+    }
+</script>
+
+</body>
+</html>

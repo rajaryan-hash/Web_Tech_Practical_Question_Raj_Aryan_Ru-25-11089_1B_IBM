@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: sans-serif; padding: 40px; background: #f3e5f5; }
+        .prime-card { background: white; padding: 30px; border-radius: 8px; width: 300px; margin: 0 auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h3 { color: #8e24aa; margin-top: 0; }
+        input { padding: 10px; width: 60%; margin-right: 5px; }
+        button { padding: 10px 15px; background: #8e24aa; color: white; border: none; cursor: pointer; }
+        #prime-res { margin-top: 15px; font-weight: bold; font-size: 1.1em; }
+    </style>
+</head>
+<body>
+
+<div class="prime-card">
+    <h3>Prime Checker (While Loop)</h3>
+    <input type="number" id="primeInput">
+    <button onclick="checkPrime()">Check</button>
+    <div id="prime-res"></div>
+</div>
+
+<script>
+    function checkPrime() {
+        let n = parseInt(document.getElementById("primeInput").value);
+        let i = 2;
+        let isPrime = true;
+        
+        if (n <= 1) isPrime = false;
+        
+        while (i <= Math.sqrt(n)) {
+            if (n % i === 0) {
+                isPrime = false;
+                break;
+            }
+            i++;
+        }
+        
+        if (isPrime) document.getElementById("prime-res").innerText = n + " is Prime.";
+        else document.getElementById("prime-res").innerText = n + " is NOT Prime.";
+    }
+</script>
+
+</body>
+</html>
